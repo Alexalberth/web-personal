@@ -1,0 +1,15 @@
+<article class="publicacion{{claseIndice}}">
+  <header class="publicacion-cabecera">
+    <p class="meta"><time datetime="{{fechaISO}}">{{fechaLegible}}</time>, {{tiempoLectura}} de lectura{{{marcaBorrador}}}</p>
+    <h1>{{titulo}}</h1>
+    {{{etiquetas}}}
+  </header>
+  {{{tablaContenido}}}
+  <div class="prosa">
+{{{contenidoHtml}}}
+  </div>
+  <footer class="publicacion-pie">
+    {{{vecinas}}}
+    <p><a href="/">Volver al inicio</a></p>
+  </footer>
+</article>

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-borradores/
+.perfil-navegador/
+.wrangler/
+archivo-anterior/
+capturas/
+redes/salida/
+redes/*.json
+# Borradores que aún no son públicos
+contenido/proyectos/tesis-foncomun.md
+contenido/publicaciones/impuesto-renta-2026-calculadora.md

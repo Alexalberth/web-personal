@@ -1,0 +1,31 @@
+<section class="hero" aria-labelledby="titulo-hero">
+  <h1 id="titulo-hero" class="hero-titulo">{{saludo}}</h1>
+  <div class="hero-cuerpo">
+    <div>
+      <p class="hero-texto">{{presentacion}}</p>
+      <ul class="hero-enlaces">{{{enlacesHero}}}</ul>
+    </div>
+    <aside class="ahora" aria-labelledby="titulo-ahora">
+      <h2 id="titulo-ahora">Ahora</h2>
+      <ul>{{{ahora}}}</ul>
+    </aside>
+  </div>
+  {{{metodo}}}
+</section>
+
+<p class="puente">{{puenteProyectos}}</p>
+
+{{{proyectosDestacados}}}
+
+{{{fueraDelAula}}}
+
+<section class="indice" aria-labelledby="titulo-indice"{{{ocultarPublicaciones}}}>
+  <div class="indice-cabecera">
+    <h2 id="titulo-indice">{{tituloIndice}}</h2>
+    <p class="indice-total">{{totalPublicaciones}}</p>
+  </div>
+  <p class="introduccion">{{introduccion}}</p>
+  {{{filtros}}}
+  {{{listaPublicaciones}}}
+  <p class="sin-resultados" hidden data-sin-resultados>Ninguna publicación coincide con la búsqueda. <button type="button" class="enlace-boton" data-limpiar>Mostrar todas</button></p>
+</section>

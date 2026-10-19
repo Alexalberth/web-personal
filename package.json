@@ -1,0 +1,28 @@
+{
+  "name": "web-personal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sitio estático personal de Alex Cuya generado desde archivos Markdown.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.js --abrir",
+    "start": "node scripts/dev.js --abrir",
+    "build": "node scripts/build.js",
+    "preview": "node scripts/preview.js",
+    "build:borradores": "node scripts/build.js --borradores",
+    "preview:borradores": "node scripts/preview.js --borradores",
+    "capturas": "node scripts/capturas.js",
+    "publicar": "node scripts/publicar.js",
+    "subir": "node scripts/subir.js",
+    "conectar": "npx --yes wrangler@4.147.0 login",
+    "redes": "node scripts/redes.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "5.3.0",
+    "@fontsource/spectral": "5.3.0",
+    "marked": "18.1.0"
+  }
+}

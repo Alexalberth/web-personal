@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{idioma}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{tituloPagina}}</title>
+  <meta name="description" content="{{descripcion}}">
+  <meta name="author" content="{{autor}}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="{{urlCanonica}}">
+  <meta property="og:type" content="{{ogTipo}}">
+  <meta property="og:title" content="{{ogTitulo}}">
+  <meta property="og:description" content="{{descripcion}}">
+  <meta property="og:url" content="{{urlCanonica}}">
+  <meta property="og:site_name" content="{{tituloSitio}}">
+  <meta property="og:locale" content="{{localeOpenGraph}}">
+  <meta property="og:image" content="{{urlImagenOg}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alex Cuya: economía, datos y disciplina">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{urlImagenOg}}">
+  {{{metaExtra}}}
+  <link rel="alternate" type="application/rss+xml" title="{{tituloSitio}}" href="/feed.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/icono-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/icono-180.png">
+  <script>
+    // Aplica el tema guardado antes de pintar la página (evita un parpadeo de color).
+    try { const t = localStorage.getItem('tema'); if (t === 'claro' || t === 'oscuro') document.documentElement.dataset.tema = t; } catch {}
+  </script>
+  <link rel="preload" href="/fuentes/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fuentes/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/estilos.css">
+  <script src="/sitio.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="sitio-cabecera">
+    <div class="contenedor sitio-cabecera-interior">
+      <a class="sitio-nombre" href="/" aria-label="{{tituloSitio}}, inicio">{{{logoSvg}}}<span>{{tituloSitio}}</span></a>
+      <div class="cabecera-derecha">
+        <nav aria-label="Principal">
+          {{{navegacion}}}
+        </nav>
+        <button type="button" class="boton-tema" data-boton-tema hidden>
+          <svg class="icono-sistema" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+          <svg class="icono-claro" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg class="icono-oscuro" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <span class="visualmente-oculto" data-texto-tema>Tema: automático</span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="contenido" class="contenedor" tabindex="-1">
+{{{contenido}}}
+  </main>
+  <footer class="sitio-pie">
+    <div class="contenedor">
+      <p class="pie-marca">{{{logoSvg}}}<span>© {{anio}} {{autor}}. En redes, {{marca}}.</span></p>
+      {{{enlacesRedes}}}
+      <p class="pie-enlaces"><a href="/suscribirse/">Suscribirse a las publicaciones</a></p>
+    </div>
+  </footer>
+</body>
+</html>
