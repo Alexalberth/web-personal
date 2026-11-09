@@ -3,8 +3,8 @@ titulo: "Académico"
 resumen: "Formación, docencia, proyectos e investigación de Alex Cuya en economía, finanzas y datos."
 ---
 
-Lo que hago dentro de la universidad: lo que estudio, lo que enseño y los proyectos donde
-pongo a prueba el método de medir, ajustar y repetir.
+Lo que estudio, lo que enseño y los proyectos, dentro y fuera de la universidad, donde pongo
+a prueba el método de medir, ajustar y repetir.
 
 ## Formación
 
@@ -26,8 +26,8 @@ un precio.
 
 ## Proyectos
 
-En todos empecé por lo mismo: saber de dónde vienen los datos y cuánto confiar en ellos
-antes de estimar nada. Cada proyecto explica el problema, cómo lo abordé y qué obtuve.
+En cada análisis empecé por lo mismo: saber de dónde vienen los datos y cuánto confiar en
+ellos antes de estimar nada. Cada proyecto explica el problema, cómo lo abordé y qué obtuve.
 
 {{proyectos}}
 

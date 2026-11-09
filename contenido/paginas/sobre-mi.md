@@ -24,3 +24,5 @@ cualquiera pueda repetir el resultado.
 Si buscas a alguien que ordene los datos, explique lo que encontró y sostenga el método
 en el tiempo, escríbeme por [LinkedIn](https://www.linkedin.com/in/alecu03). Y si prefieres
 algo más cercano, en Instagram soy [@_alee_cu](https://www.instagram.com/_alee_cu/).
+
+{{contactoDirecto}}

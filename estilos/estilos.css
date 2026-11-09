@@ -436,6 +436,19 @@ h3 { font-size: 1.3rem; margin: 2.25rem 0 0.6rem; }
   line-height: 1.5;
 }
 .herramientas span { color: var(--tinta); font-weight: 650; }
+.proyecto-nota { margin-top: 0.75rem; color: var(--tinta-suave); font-size: 0.88rem; font-style: italic; }
+.proyecto-nota p { margin: 0; }
+.proyecto-enlaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--fuente-titulo);
+  font-size: 0.92rem;
+  font-weight: 650;
+}
 /* En la portada, versión corta: sin "Cómo lo abordé" */
 .proyectos-destacados .proyecto-enfoque { display: none; }
 

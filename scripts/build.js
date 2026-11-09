@@ -173,6 +173,14 @@ async function leerPublicaciones() {
     .sort((a, b) => b.fecha - a.fecha || a.titulo.localeCompare(b.titulo, 'es'));
 }
 
+// Correo y CV de sitio.config.js, como texto Markdown para la página Sobre mí.
+function contactoDirecto() {
+  const partes = [];
+  if (sitio.correo) partes.push(`[${sitio.correo}](mailto:${sitio.correo})`);
+  if (sitio.cv) partes.push(`[Descargar mi CV (PDF)](${sitio.cv})`);
+  return partes.join(' · ');
+}
+
 // Proyectos del portafolio: un archivo .md por proyecto en contenido/proyectos/.
 async function leerProyectos() {
   if (!existsSync(DIR_PROYECTOS)) return [];
@@ -196,7 +204,13 @@ async function leerProyectos() {
       herramientas: Array.isArray(datos.herramientas) ? datos.herramientas.map(String) : [],
       destacado: datos.destacado === true,
       orden: Number(datos.orden ?? 99),
-      notaHtml: cuerpo.trim() ? convertirMarkdown(cuerpo).html : ''
+      // Evidencia del proyecto: cada elemento de "enlaces" es "Texto|https://..." o "Texto|/ruta/".
+      enlaces: (Array.isArray(datos.enlaces) ? datos.enlaces : []).map((e) => {
+        const [texto, url] = String(e).split('|').map((v) => v.trim());
+        if (!texto || !/^(https:\/\/|\/)/.test(url ?? '')) throw new Error(`${ruta}: enlace no válido "${e}". Usa "Texto|https://..." o "Texto|/ruta/".`);
+        return { texto, url };
+      }),
+      notaHtml: cuerpo.trim() ? `<div class="proyecto-nota">${convertirMarkdown(cuerpo).html}</div>` : ''
     });
   }
   return proyectos.sort((a, b) => a.orden - b.orden || a.titulo.localeCompare(b.titulo, 'es'));
@@ -217,7 +231,10 @@ async function leerPaginas() {
       titulo: String(datos.titulo),
       resumen: datos.resumen ? String(datos.resumen) : '',
       // {{feed}} dentro del Markdown se sustituye por la dirección del RSS.
-      contenidoHtml: convertirMarkdown(cuerpo.replaceAll('{{feed}}', urlAbsoluta('/feed.xml'))).html,
+      contenidoHtml: convertirMarkdown(cuerpo
+        .replaceAll('{{feed}}', urlAbsoluta('/feed.xml'))
+        // {{contactoDirecto}} desaparece mientras no haya correo ni CV en sitio.config.js.
+        .replaceAll('{{contactoDirecto}}', contactoDirecto())).html,
       ruta: `/${slug}/`
     });
   }
@@ -296,6 +313,9 @@ async function main() {
     slug: p.slug, nivel, titulo: p.titulo, area: p.area, anio: p.anio,
     areaSlug: aSlug(p.area), herramientasSlug: p.herramientas.map(aSlug).join(' '),
     problema: p.problema, enfoque: p.enfoque, resultado: p.resultado, notaHtml: p.notaHtml,
+    enlacesHtml: p.enlaces.length
+      ? `<ul class="proyecto-enlaces">${p.enlaces.map((e) => `<li><a href="${escaparHtml(e.url)}">${escaparHtml(e.texto)}</a></li>`).join('')}</ul>`
+      : '',
     herramientas: p.herramientas.length
       ? `<p class="herramientas"><span>Herramientas y datos:</span> ${p.herramientas.map(escaparHtml).join(', ')}</p>`
       : ''
@@ -388,6 +408,8 @@ ${proyectos.map((p) => `      <li data-herramientas="${p.herramientas.map(aSlug)
   </div>` : '';
   const enlacesHero = [
     proyectos.length ? '<li><a class="enlace-principal" href="/academico/#proyectos">Ver mis proyectos</a></li>' : '',
+    sitio.cv ? `<li><a href="${escaparHtml(sitio.cv)}">Descargar CV</a></li>` : '',
+    sitio.correo ? `<li><a href="mailto:${escaparHtml(sitio.correo)}">Escríbeme</a></li>` : '',
     '<li><a href="/extracurricular/">Fuera del aula</a></li>',
     ...sitio.redes.map((r) => `<li><a href="${escaparHtml(r.url)}" rel="me">${escaparHtml(r.nombre)}</a></li>`)
   ].join('');

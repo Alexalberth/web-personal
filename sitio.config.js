@@ -18,8 +18,13 @@ export default {
   iniciales: 'AC',
   saludo: 'Economía, datos y disciplina.',
   presentacion: 'Soy Alex Cuya, estudiante de Economía en la PUCP. Convierto bases de datos desordenadas en evidencia para finanzas y políticas públicas, con el mismo método que aplico bajo la barra: medir, ajustar y repetir.',
+  // Contacto directo. Si quedan vacíos, los enlaces no aparecen en la web.
+  // cv: ruta de un PDF guardado en activos/, por ejemplo '/cv-alex-cuya.pdf'. Sin teléfono: es público.
+  correo: '',
+  cv: '',
   // Columna "Ahora" de la portada: en qué estás actualmente (una línea por elemento).
   ahora: [
+    'Busco prácticas preprofesionales en finanzas, riesgos y análisis de datos.',
     'Jefe de Práctica de Matemáticas para Economistas en la PUCP.',
     'Analista comercial voluntario en la Asociación Revista Económica.',
     'Entrenando powerlifting con cargas y RPE registrados.'
@@ -31,7 +36,7 @@ export default {
     { verbo: 'Repetir', datos: 'Documentar cada criterio para que el análisis se pueda rehacer sin empezar de cero.', barra: 'Sostener el programa semana a semana hasta el día de la competencia.' }
   ],
   // Puente de texto entre la presentación y los proyectos.
-  puenteProyectos: 'Esa forma de trabajar se entiende mejor con ejemplos. En cada proyecto empecé por lo mismo: saber de dónde vienen los datos y cuánto confiar en ellos antes de estimar nada.',
+  puenteProyectos: 'Esa forma de trabajar se entiende mejor con ejemplos. En cada análisis empecé por lo mismo: saber de dónde vienen los datos y cuánto confiar en ellos antes de estimar nada.',
   // Proyectos destacados de la portada (los que tengan "destacado: true").
   tituloProyectos: 'Proyectos destacados',
   // Franja "Fuera del aula" de la portada (enlaza a secciones de Extracurricular por su ancla).

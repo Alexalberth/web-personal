@@ -444,3 +444,13 @@ Pedido: dividir la web en una sección con todo lo académico y otra con lo extr
 - Verificado en línea: 200 en Inicio, Académico, Extracurricular, Sobre mí y Suscribirse; la antigua página de proyectos redirige a Académico; la portada muestra el menú nuevo y la franja "Fuera del aula".
 
 **Pendiente:** fotos, que el usuario enviará el jueves después de sus parciales.
+
+## Credibilidad y proyectos recientes (2026-11-08, publicado con `npm run subir`)
+
+Pedido: aplicar los bloques 1 y 2 de la revisión de la web.
+
+- **AUNA:** resultado con cifras de `AUNA_Valorizacion.xlsx` (Drive, datos al 21-oct-2026). El Word `Informe_AUNA_Valorizacion.docx` no se enlaza: su tabla del DCF toma celdas equivocadas (margen EBITDA de 498.890 %).
+- **Proyectos nuevos:** Ferreycorp (`Ferreycorp_Hito2.docx`), Odisea y Bloque Informativo. Destacados: AUNA, Ferreycorp, Empleo juvenil y Odisea.
+- **Generador:** campo `enlaces` en los proyectos ("Texto|URL"), nota por proyecto y campos `correo` y `cv` en `sitio.config.js`, ocultos mientras estén vacíos.
+- **Sin fuente, sin cambios de cifras:** empleo juvenil, violencia laboral, inclusión financiera, Aceros Arequipa, FLAR, Madre de Dios y carruseles.
+- **Verificado en local:** build sin errores, 12 proyectos, tesis ausente, sin errores de consola y sin desplazamiento horizontal a 375 px.
